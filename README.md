@@ -1,6 +1,6 @@
-# SmpuosNurseFront
+# SmpuosAdminFront
 
-Frontend deo projekta za predmet SMPUOS tima 2. <br/>
+Frontend deo projekta za predmet SMPUOS tima 2 i 3. <br/>
 Linka ka repozitorijumu sa backend delom projekta: https://github.com/milicat228/smpuos-projekat <br/>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
