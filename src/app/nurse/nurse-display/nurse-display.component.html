@@ -1,0 +1,35 @@
+<div class="jumbotron">
+  <h1>Pregled korisničkih naloga medicinskih sestara</h1>
+  <p class="lead">Ova stranica omogućava pregled i administraciju korisničkih naloga medicinskih sestara.</p>
+  <hr class="my-4">
+  <a class="btn btn-primary" role="button" routerLink="/nurse/edit"> <i class="fa fa-plus" aria-hidden="true"></i> Dodaj nalog</a>
+</div>
+
+<table class="table table-striped table-sm">
+  <thead>
+  <tr>
+    <th scope="col" sortable="id">Oznaka</th>
+    <th scope="col" sortable="username">Korisničko ime</th>
+    <th scope="col" sortable="email">Email</th>
+    <th scope="col" sortable="email">Datum registracije</th>
+    <th scope="col" sortable="firstname">Ime</th>
+    <th scope="col" sortable="lastanme">Prezime</th>
+    <th scope="col" sortable="lastanme">Datum rođenja</th>
+    <th scope="col" sortable="lastanme">JMBG</th>
+    <th scope="col" sortable="email">Nalog aktivan</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let nurse of nurses">
+    <td>{{nurse.id}}</td>
+    <td>{{ nurse.username}}</td>
+    <td>{{ nurse.email}}</td>
+    <td>{{ nurse.registrationDate | date}}</td>
+    <td>{{ nurse.firstname}}</td>
+    <td>{{ nurse.lastname}}</td>
+    <td>{{ nurse.dateOfBirth | date}}</td>
+    <td>{{ nurse.jmbg}}</td>
+    <td [ngClass]="{true:'active-account',false:'table-danger'}[nurse.active]">{{ nurse.active?'Da':'Ne'}}</td>
+  </tr>
+  </tbody>
+</table>

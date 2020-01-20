@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import url(../node_modules/@fortawesome/fontawesome-free/css/all.css);
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import url(../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css);
+
+html, body, app-root {
+  height: 100%;
+  margin: 0px;
+}
+
+.page-body{
+  height: 100%;
+  margin: 2%;
+}
+
+/* Change icons*/
+.blue-fa{
+	color: #33cabb;
+	width: 15px;
+}
+
+a{
+  color:#33cabb;
+}
+
+a:hover{
+  color: #5aa39c
+}
+
+/* Change color of buttons*/
+.btn-primary, .btn-primary:active {
+	color: #fff;
+	background: #33cabb;
+	vertical-align: middle;
+	border: none;
+}
+
+/* Change color of buttons when hovered or focused*/
+.btn-primary:hover, .btn-primary:focus {
+	color: #fff;
+	outline: none;
+	background: #31bfb1;
+}

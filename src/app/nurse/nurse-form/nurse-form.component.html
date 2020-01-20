@@ -1,0 +1,160 @@
+<div class="jumbotron">
+  <h1>Kreiranje naloga za medicinsku sestru</h1>
+  <p class="lead">Popunite formu i kliknite sačuvaj kako biste napravili novi nalog medicinskoj sestri.</p>
+</div>
+
+<form [formGroup]="nurseForm" (validSubmit) = "addNurse()">
+
+  <fieldset class="scheduler-border">
+    <legend class="scheduler-border">Informacije o nalogu</legend>
+    <!–– Korisničko ime ––>
+    <div class="form-group row">
+      <label for="username" class="col-sm-2 col-form-label">Korisničko ime</label>
+      <div class="input-group col-sm-10">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-user blue-fa" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Korisničko ime" formControlName="username">
+      </div>
+    </div>
+
+    <!–– Lozinka ––>
+    <div class="form-group row">
+      <label for="password" class="col-sm-2 col-form-label">Šifra</label>
+      <div class="input-group col-sm-10">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-lock blue-fa" aria-hidden="true"></i></span>
+        </div>
+        <input type="password" class="form-control" placeholder="Šifra" formControlName="password">
+      </div>
+    </div>
+
+    <!–– Nalog aktivan ––>
+    <div class="form-group row">
+      <label for="active" class="col-sm-2 col-form-label">Nalog aktivan?</label>
+      <div class="input-group col-sm-10">
+        <input class="form-check-input" type="checkbox" formControlName="active" class="form-control-sm">
+      </div>
+    </div>
+
+  </fieldset> <br/>
+
+  <fieldset class="scheduler-border">
+    <legend class="scheduler-border">Lične informacije</legend>
+    <!–– Ime ––>
+    <div class="form-group row">
+      <label for="firstname" class="col-sm-2 col-form-label">Ime</label>
+      <div class="input-group col-sm-10">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-signature blue-fa" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Ime" formControlName="firstname">
+      </div>
+    </div>
+
+    <!–– Prezime ––>
+    <div class="form-group row">
+      <label for="lastname" class="col-sm-2 col-form-label">Prezime</label>
+      <div class="input-group col-sm-10">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-signature blue-fa" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Prezime" formControlName="lastname">
+      </div>
+    </div>
+
+    <!–– JMBG ––>
+    <div class="form-group row">
+      <label for="jmbg" class="col-sm-2 col-form-label">JMBG</label>
+      <div class="input-group col-sm-10">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-id-card blue-fa" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="JMBG" formControlName="jmbg">
+      </div>
+    </div>
+
+    <!–– Datum rođenja ––>
+    <div class="form-group row">
+      <label for="dateOfBirth" class="col-sm-2 col-form-label">Datum rođenja</label>
+      <div class="input-group col-sm-10">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-calendar blue-fa" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" formControlName="dateOfBirth" placeholder="Datum rođenja" class="form-control" bsDatepicker placeholder="Datum rođenja" [bsConfig]="datePickerConfig">
+      </div>
+    </div>
+
+    <!–– Stručna sprema ––>
+    <div class="form-group row" formGroupName="professionalQualification">
+      <label class="col-sm-2 col-form-label">Stručna sprema</label>
+      <div class="col-sm-10 input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-graduation-cap blue-fa" aria-hidden="true"></i></span>
+        </div>
+        <ng-select class="form-control ng-select" formControlName="id" [items]="professionalQualifications" bindLabel="name" bindValue="id" placeholder="Izaberite stručnu spremu">
+          <ng-template ng-label-tmp let-item="item">
+            {{item.name}} ({{item.description}})
+          </ng-template>
+          <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+              {{item.name}} ({{item.description}})
+          </ng-template>
+        </ng-select>
+      </div>
+    </div>
+
+  </fieldset> <br/>
+
+  <fieldset class="scheduler-border">
+    <legend class="scheduler-border">Kontakt informacije</legend>
+
+    <!–– Email ––>
+    <div class="form-group row">
+      <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <div class="input-group col-sm-10">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-envelope blue-fa" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="email@example.com" formControlName="email">
+      </div>
+    </div>
+
+    <!–– Broj telefona ––>
+    <div class="form-group row">
+      <label for="phoneNumber" class="col-sm-2 col-form-label">Broj telefona</label>
+      <div class="input-group col-sm-10">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-phone blue-fa" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Broj telefona" formControlName="phoneNumber">
+      </div>
+    </div>
+
+    <!–– Adresa ––>
+    <div class="form-group row">
+      <label for="address" class="col-sm-2 col-form-label">Adresa</label>
+      <div class="input-group col-sm-10">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-map-marker blue-fa" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Ulica broj, Grad pp" formControlName="address">
+      </div>
+    </div>
+  </fieldset> <br/>
+
+  <div class="text-center mb-2" *ngIf="loading" >
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <p class="text-detail">Kreiranje naloga u toku.</p>
+  </div>
+
+  <div class="alert alert-danger" role="alert" *ngIf="message" >
+    <strong>Došlo je do greške!</strong> {{message}}
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary">Odustani</button>
+    <input type="submit" class="btn btn-primary" value="Sačuvaj izmene">
+  </div>
+</form>

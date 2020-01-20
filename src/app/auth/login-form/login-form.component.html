@@ -1,0 +1,51 @@
+<section class="container">
+  <section class="formContainer">
+    <form class="form-inlin justify-content-center" (validSubmit) = "onLogin()" [formGroup]="loginForm">
+      <div class="form-row text-center mb-2">
+        <div class="col-12">
+            <h4>Prijava na sistem</h4>
+            <hr>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fa fa-user blue-fa" aria-hidden="true"></i>
+              </span>
+            </div>
+            <input formControlName="username" type="text" class="form-control" id="username" placeholder="Korisničko ime">
+        </div>
+      </div>
+
+      <div class="form-group">
+          <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-lock blue-fa" aria-hidden="true"></i>
+                </span>
+              </div>
+              <input type="password" formControlName="password" class="form-control" id="password" placeholder="Šifra">
+          </div>
+      </div>
+
+      <div class="text-center mb-2" *ngIf="loading" >
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <p class="text-detail">Prijava na sistem u toku</p>
+      </div>
+
+
+      <div class="alert alert-danger" role="alert" *ngIf="message" >
+        <strong>Došlo je do greške!</strong> {{message}}
+      </div>
+
+      <div class="form-row text-center" *ngIf="loading == false">
+          <div class="col-12">
+              <input type="submit" class="btn btn-primary" value="Prijava">
+          </div>
+       </div>
+    </form>
+  </section>
+</section>

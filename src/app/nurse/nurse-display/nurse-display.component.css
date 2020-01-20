@@ -1,0 +1,23 @@
+/* Change color of buttons*/
+.btn-primary, .btn-primary:active {
+	color: #fff;
+	background: #33cabb;
+	vertical-align: middle;
+	border: none;
+}
+
+/* Change color of buttons when hovered or focused*/
+.btn-primary:hover, .btn-primary:focus{
+	color: #fff;
+	outline: none;
+	background: #31bfb1;
+}
+
+.active-account{
+  background: #31bfb1;
+  color: #fff;
+}
+
+.jumbotron{
+  padding: 20px;
+}
